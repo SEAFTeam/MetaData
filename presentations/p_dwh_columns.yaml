@@ -1,0 +1,39 @@
+entities:
+  seaf.md.dwh.columns:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: type
+            text: Тип
+          - value: description
+            text: Описание
+          - value: constraints
+            text: Перечень ограничений
+          - value: pk_flag
+            text: Является первичным ключом
+          - value: fk_flag
+            text: Является ссылочным
+          - value: physical_table
+            text: Физическая таблица
+          - value: pdn_flag
+            text: Персональные данные
+          - value: cde_flag
+            text: Критичные данные
+        source: >
+          (
+            [$."seaf.md.dwh.columns".$spread().
+                {
+                    "title": *.title,
+                    "type": *.type,
+                    "description": *.description,
+                    "constraints": *.constraints,
+                    "pk_flag": *.pk_flag,
+                    "fk_flag": *.fk_flag,
+                    "physical_table":  ($id := *.physical_table; $$."seaf.md.dwh.tables".$spread()[$keys() = $id].*.title),
+                    "pdn_flag": *.pdn_flag,
+                    "cde_flag": *.cde_flag
+                }]
+          )

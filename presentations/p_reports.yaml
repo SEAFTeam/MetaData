@@ -1,0 +1,101 @@
+entities:
+  seaf.md.BIreports:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Назначение
+          - value: indicators
+            text: Рассчитываемые показатели
+          - value: data_marts
+            text: Витрины КХД
+          - value: report_type
+            text: Тип отчета
+          - value: users_count
+            text: Количество потребителей
+          - value: developer
+            text: Разработчик
+          - value: owner
+            text: Владелец
+        source: >
+          (
+            [$."seaf.md.BIreports".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "indicators": *.indicators,
+                    "input_data": *.input_data,
+                    "data_marts": *.data_marts,
+                    "report_type": *.report_type,
+                    "users_count": *.users_count,
+                    "developer": *.developer,
+                    "owner": *.owner
+                }]
+          )
+
+
+  seaf.md.ASreports.templates:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Описание отчета
+          - value: specification
+            text: Описание реализации
+          - value: system
+            text: АС отчёта
+          - value: users_count
+            text: Количество потребителей
+          - value: developer
+            text: Разработчик
+          - value: user_roles
+            text: Роли пользователей отчёта
+        source: >
+          (
+            [$."seaf.md.ASreports.templates".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "specification": *.specification,
+                    "system": *.system,
+                    "users_count": *.users_count,
+                    "developer": *.developer,
+                    "user_roles": *.user_roles
+                }]
+          )
+
+  seaf.md.ASreports.files:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Описание отчета
+          - value: file_name
+            text: Наименование отчета
+          - value: system
+            text: АС отчёта
+          - value: developer
+            text: Создатель отчета
+          - value: report_date
+            text: Дата отчета
+        source: >
+          (
+            [$."seaf.md.ASreports.templates".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "file_name": *.file_name,
+                    "system": *.system,
+                    "developer": *.developer,
+                    "report_date": *.report_date
+                }]
+          )

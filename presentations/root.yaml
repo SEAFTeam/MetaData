@@ -1,0 +1,9 @@
+imports:
+  - p_business_terms.yaml
+  - p_physical_tables.yaml
+  - p_physical_attributes.yaml
+  - p_dwh_tables.yaml
+  - p_dwh_columns.yaml
+  - p_dwh_etl.yaml
+  - p_reports.yaml
+  - p_systems_registry.yaml

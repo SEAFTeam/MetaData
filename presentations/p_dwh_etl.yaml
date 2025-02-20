@@ -1,0 +1,79 @@
+entities:
+  seaf.md.dwh.procedures:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Назначение
+          - value: input_data
+            text: Исходные данные
+          - value: insert_table
+            text: Формируемая таблица
+        source: >
+          (
+            [$."seaf.md.dwh.procedures".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "input_data": *.input_data,
+                    "insert_table": *.insert_table
+                }]
+          )
+
+  seaf.md.dwh.views:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Назначение
+          - value: input_data
+            text: Исходные данные
+          - value: view_type
+            text: Тип представления
+        source: >
+          (
+            [$."seaf.md.dwh.views".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "input_data": *.input_data,
+                    "view_type": *.view_type
+                }]
+          )
+
+  seaf.md.dwh.dags:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Назначение
+          - value: start_date
+            text: Дата запуска
+          - value: schedule
+            text: Расписание
+          - value: tasks
+            text: Список задач
+          - value: etl_procs
+            text: Используемые процедуры
+        source: >
+          (
+            [$."seaf.md.dwh.dags".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "start_date": *.start_date,
+                    "schedule": *.schedule,
+                    "tasks": *.tasks,
+                    "etl_procs": *.etl_procs
+                }]
+          )
+

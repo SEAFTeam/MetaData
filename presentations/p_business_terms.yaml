@@ -1,0 +1,40 @@
+entities:
+  seaf.ia.business_objects:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Описание
+          - value: creation_date
+            text: Дата создания
+          - value: modify_date
+            text: Дата изменения
+          - value: owner
+            text: Ответственный (ФИО)
+          - value: comments
+            text: Комментарий
+          - value: legal_doc
+            text: Нормативный/правовой документ
+          - value: formula
+            text: Формула расчета показателя
+        source: >
+          (
+            $ctx:=$params.domain;
+            $terms:= $ctx and $_essentials._jsonata_function
+            ? $context_content_refined($ctx, $).observable[$.*.body.entity_id = "seaf.ia.business_objects"].*.[{$.id: $.body}]
+            :$spread($."seaf.ia.business_objects").[$~>|$.*|{"entity_id": "business_objects"}|];
+            [$terms.$spread().{
+                    "id": $keys(),
+                    "title": *.title,
+                    "description": *.description,
+                    "creation_date": *.creation_date,
+                    "modify_date": *.modify_date,
+                    "owner": *.owner,
+                    "comments": *.comments,
+                    "legal_doc": *.legal_doc,
+                    "formula": *.formula
+                }]
+          )

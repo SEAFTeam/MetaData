@@ -1,0 +1,81 @@
+entities:
+  seaf.md.dwh.tables:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+            link: self_link
+          - value: description
+            text: Описание
+          - value: layer
+            text: Слой КХД
+          - value: system
+            text: Автоматизированная система
+          - value: dbms
+            text: СУБД
+          - value: database
+            text: БД
+          - value: schema_name
+            text: Схема
+          - value: rows_count
+            text: Количество кортежей
+          - value: cols_count
+            text: Количество столбцов
+          - value: size
+            text: Размер в МБ
+          - value: pdn_flag
+            text: ПДн
+          - value: cde_flag
+            text: CDE
+          - value: developer
+            text: Разработчик
+          - value: users
+            text: Пользователи
+        source: >
+          (
+            [$."seaf.md.dwh.tables".$spread().
+                {
+                    "title": *.title,
+                    "self_link": "/entities/seaf.md.dwh.tables/md_card?id=" & $keys(),
+                    "description": *.description,
+                    "layer": *.layer,
+                    "system": *.system,
+                    "dbms": *.dbms,
+                    "database": *.database,
+                    "schema_name": *.schema_name,
+                    "rows_count": *.rows_count,
+                    "cols_count": *.cols_count,
+                    "size": *.size,
+                    "pdn_flag": *.pdn_flag,
+                    "cde_flag": *.cde_flag,
+                    "developer": *.developer,
+                    "users": *.users
+                }]
+          )
+
+      md_card:
+        type: markdown
+        template: ../templates/t_dwh_table.md
+        source: >
+          (
+            $."seaf.md.dwh.tables".$spread()[$keys()=$params.id].{
+                  "id": $keys(),
+                  "title": *.title,
+                  "description": *.description,
+                  "layer": *.layer,
+                  "system": *.system,
+                  "dbms": *.dbms,
+                  "database": *.database,
+                  "schema_name": *.schema_name,
+                  "rows_count": *.rows_count,
+                  "cols_count": *.cols_count,
+                  "size": *.size,
+                  "pdn_flag": *.pdn_flag,
+                  "cde_flag": *.cde_flag,
+                  "rmd_flag": rmd_flag,
+                  "developer": *.developer,
+                  "users": *.users
+                }
+          )

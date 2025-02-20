@@ -1,0 +1,90 @@
+entities:
+  seaf.ia.physical_attributes:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: type
+            text: Тип
+          - value: description
+            text: Назначение атрибута
+          - value: constraints
+            text: Перечень ограничений
+          - value: description
+            text: Назначение атрибута
+          - value: pk_flag
+            text: Флаг PRIMARY KEY
+          - value: fk_flag
+            text: Флаг FOREIGN KEY
+          - value: physical_table
+            text: Физическая таблица
+            link: physical_table_link
+          - value: linked_table
+            text: Связанная таблица
+            link: linked_table_link
+          - value: linked_key
+            text: Ключ в связанной таблице
+          - value: pdn_flag
+            text: Персональные данные
+          - value: cde_flag
+            text: Критичные данные
+        source: >
+          (
+            [$."seaf.ia.physical_attributes".$spread().
+                {
+                    "title": *.title,
+                    "type": *.type,
+                    "constraints": *.constraints,
+                    "description": *.description,
+                    "pk_flag": *.pk_flag,
+                    "fk_flag": *.fk_flag,
+                    "physical_table":  ($id := *.physical_table; $$."seaf.ia.physical_tables".$spread()[$keys() = $id].*.title),
+                    "physical_table_link": "/entities/seaf.ia.physical_tables/md_card?id=" & *.physical_table,
+                    "linked_table": ($id := *.linked_table; $$."seaf.ia.physical_tables".$spread()[$keys() = $id].*.title),
+                    "linked_table_link": "/entities/seaf.ia.physical_tables/md_card?id=" & *.linked_table,
+                    "linked_key": *.linked_key,
+                    "pdn_flag": *.pdn_flag,
+                    "cde_flag": *.cde_flag
+                }]
+          )
+
+
+      md_registry_by_physical_tables:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: type
+            text: Тип
+          - value: constraints
+            text: Перечень ограничений
+          - value: description
+            text: Назначение атрибута
+          - value: pk_flag
+            text: Флаг PRIMARY KEY
+          - value: fk_flag
+            text: Флаг FOREIGN KEY
+          - value: pdn_flag
+            text: Персональные данные
+          - value: cde_flag
+            text: Критичные данные
+        source: >
+          (
+            [$."seaf.ia.physical_attributes".$spread().(
+            $id := $keys();
+            *[physical_table=$params.id].
+              {
+                    "title": title,
+                    "self_link": "/entities/seaf.ia.physical_attributes/card?id=" & $id,
+                    "type": type,
+                    "constraints": constraints,
+                    "description": description,
+                    "pk_flag": pk_flag,
+                    "fk_flag": fk_flag,
+                    "pdn_flag": pdn_flag,
+                    "cde_flag": cde_flag
+              }
+            )]
+          )

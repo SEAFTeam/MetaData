@@ -1,0 +1,81 @@
+entities:
+  seaf.md.reestrAS:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+            link: self_link
+          - value: description
+            text: Описание
+          - value: dbms
+            text: СУБД АС
+          - value: tables_count
+            text: Количество таблиц
+        source: >
+          ([
+            ($."seaf.ia.physical_tables".*{system:[[$distinct(dbms)], $count(title)]} ~> $each(function( $v, $k) {
+              { "system": $k, "dbms": $v[0], "tables_count": $v[1]}
+              })
+            ).{
+              "title": system,
+              "self_link": "/entities/seaf.md.reestrAS/md_card?id=" & system,
+              "description": (
+                $sys_code := system; 
+                $$.components.$spread()[$keys()=$sys_code].*.description; 
+              ),
+              "dbms": dbms,
+              "tables_count": tables_count
+            }
+          ])
+
+      md_card:
+        type: markdown
+        template: ../templates/t_system_registry.md
+        source: >
+          ( $param_id := $params.id;
+            {
+              "id": $param_id,
+              "title": (
+                $system_component_title := $$.components.$spread()[$keys()=$param_id].*.title; 
+                $system_component_title ? $system_component_title : $param_id
+              ),
+              "description": $$.components.$spread()[$keys()=$param_id].*.description,
+              "system_link": (
+                $link := "/entities/components/blank?dh-component-id=" & $param_id;
+                $system_component_title := $$.components.$spread()[$keys()=$param_id].*.title;
+                $system_component_title ? $link : null
+              )
+            }
+          )
+
+      registry_by_system:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+            link: self_link
+          - value: description
+            text: Описание
+          - value: dbms
+            text: СУБД
+          - value: rmd_flag
+            text: Справочник НСИ
+          - value: cde_flag
+            text: Критичные данные
+        source: >
+          (
+            [$."seaf.ia.physical_tables".$spread().($id := $keys();(
+            *[system=$params.id].
+              {
+                    "title": title,
+                    "self_link": "/entities/seaf.ia.physical_tables/md_card?id=" & $id,
+                    "description": description,
+                    "dbms": dbms,
+                    "pdn_flag": pdn_flag,
+                    "cde_flag": cde_flag,
+                    "rmd_flag": rmd_flag
+              })
+            )]
+          )

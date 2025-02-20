@@ -1,0 +1,81 @@
+entities:
+  seaf.ia.physical_tables:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+            link: self_link
+          - value: description
+            text: Описание
+          - value: system
+            text: Автоматизированная система
+          - value: dbms
+            text: Наименование СУБД АС
+          - value: database
+            text: Наименование Базы Данных
+          - value: schema_name
+            text: Схема в конкретной БД
+          - value: rows_count
+            text: Количество строк
+          - value: cols_count
+            text: Количество столбцов
+          - value: pdn_flag
+            text: Персональные данные
+          - value: cde_flag
+            text: Критичные данные
+          - value: rmd_flag
+            text: Справочник НСИ
+        source: >
+          (
+            [$."seaf.ia.physical_tables".$spread().
+                {
+                    "title": *.title,
+                    "self_link": "/entities/seaf.ia.physical_tables/md_card?id=" & $keys(),
+                    "description": *.description,
+                    /* отображаем `.title` только для АС, описанных в `$$.components`, а для отсутствующих - переданный код АС */
+                    "system": (
+                      $sys_code := *.system; 
+                      $system_component_title := $$.components.$spread()[$keys()=$sys_code].*.title; 
+                      $system_component_title ? $system_component_title : *.system
+                    ),
+                    "dbms": *.dbms,
+                    "database": *.database,
+                    "schema_name": *.schema_name,
+                    "rows_count": *.rows_count,
+                    "cols_count": *.cols_count,
+                    "pdn_flag": *.pdn_flag,
+                    "cde_flag": *.cde_flag,
+                    "rmd_flag": *.rmd_flag
+                }]
+          )
+
+      md_card:
+        type: markdown
+        template: ../templates/t_physical_table.md
+        source: >
+          (
+            $."seaf.ia.physical_tables".$spread()[$keys()=$params.id].{
+                  "id": $keys(),
+                  "title": *.title,
+                  "status": *.status,
+                  "type": *.type,
+                  "description": *.description,
+                  "system": (
+                    $sys_code := *.system; 
+                    $system_component_title := $$.components.$spread()[$keys()=$sys_code].*.title; 
+                    $system_component_title ? $system_component_title : $sys_code
+                  ),
+                  "system_link": "/entities/seaf.md.reestrAS/md_card?id=" & *.system,
+                  "dbms": *.dbms,
+                  "database": *.database,
+                  "schema_name": *.schema_name,
+                  "loc_attr": *.loc_attr,
+                  "rows_count": *.rows_count,
+                  "cols_count": *.cols_count,
+                  "pdn_flag": *.pdn_flag,
+                  "cde_flag": *.cde_flag,
+                  "rmd_flag": rmd_flag
+                }
+          )
