@@ -1,0 +1,66 @@
+# entities:
+#     seaf.ia.business_obj:
+#       menu: >
+#         (
+#           {
+#             "location": "Метаданные/Бизнеса",
+#             "link": "/entities/seaf.ia.business_objects/registry"
+#           }
+#         )
+
+seaf.nav:
+  - title: Метаданные
+    includes:
+      - title: Бизнеса
+        link: "/entities/seaf.ia.business_objects/md_registry"
+        order: 200
+      - title: Автоматизированных Систем
+        includes:
+          - title: Реестр АС
+            link: "/entities/seaf.md.reestrAS/md_registry"
+            order: 210
+          - title: Таблицы
+            link: "/entities/seaf.ia.physical_tables/md_registry"
+            order: 211
+          - title: Колонки
+            link: "/entities/seaf.ia.physical_attributes/md_registry"
+            order: 212
+      - title: Корпоративного Хранилища Данных
+        includes:
+          - title: Технические метаданные
+            includes:
+              - title: Таблицы
+                link: "/entities/seaf.md.dwh.tables/md_registry"
+                order: 210
+              - title: Колонки
+                link: "/entities/seaf.md.dwh.columns/md_registry"
+                order: 211
+          - title: Преобразований таблиц
+            includes:
+              - title: Хранимые процедуры
+                link: "/entities/seaf.md.dwh.procedures/md_registry"
+                order: 220
+              - title: Представления
+                link: "/entities/seaf.md.dwh.views/md_registry"
+                order: 221
+              - title: Графы оркестратора
+                link: "/entities/seaf.md.dwh.dags/md_registry"
+                order: 222
+      - title: Отчетов
+        includes:
+          - title: Реестр Отчетов BI
+            link: "/entities/seaf.md.BIreports/md_registry"
+            order: 210
+          - title: Реестр отчетов АС
+            order: 211
+            includes:
+              - title: Описание шаблона отчета
+                link: "/entities/seaf.md.ASreports.templates/md_registry"
+                order: 220
+              - title: Мета информации об отчете
+                link: "/entities/seaf.md.ASreports.files/md_registry"
+                order: 221
+      - title: Процесса качества
+        link: "/entities/seaf.ia.business_objects/registry"
+      - title: Файлов компании
+        link: "/entities/seaf.ia.business_objects/registry"
