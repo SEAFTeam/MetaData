@@ -89,7 +89,7 @@ entities:
             text: Дата отчета
         source: >
           (
-            [$."seaf.md.ASreports.templates".$spread().
+            [$."seaf.md.ASreports.files".$spread().
                 {
                     "title": *.title,
                     "description": *.description,

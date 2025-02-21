@@ -1,4 +1,3 @@
 imports:
-  - templates/t_physical_table.md
   - presentations/root.yaml
   - menu.yaml

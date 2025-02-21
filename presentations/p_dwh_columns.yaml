@@ -37,3 +37,41 @@ entities:
                     "cde_flag": *.cde_flag
                 }]
           )
+
+      md_registry_by_physical_tables:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: type
+            text: Тип
+          - value: constraints
+            text: Перечень ограничений
+          - value: description
+            text: Назначение атрибута
+          - value: pk_flag
+            text: Флаг PRIMARY KEY
+          - value: fk_flag
+            text: Флаг FOREIGN KEY
+          - value: pdn_flag
+            text: Персональные данные
+          - value: cde_flag
+            text: Критичные данные
+        source: >
+          (
+            [$."seaf.md.dwh.columns".$spread().(
+            $id := $keys();
+            *[physical_table=$params.id].
+              {
+                    "title": title,
+                    "self_link": "/entities/seaf.md.dwh.columns/card?id=" & $id,
+                    "type": type,
+                    "constraints": constraints,
+                    "description": description,
+                    "pk_flag": pk_flag,
+                    "fk_flag": fk_flag,
+                    "pdn_flag": pdn_flag,
+                    "cde_flag": cde_flag
+              }
+            )]
+          )

@@ -1,13 +1,3 @@
-# entities:
-#     seaf.ia.business_obj:
-#       menu: >
-#         (
-#           {
-#             "location": "Метаданные/Бизнеса",
-#             "link": "/entities/seaf.ia.business_objects/registry"
-#           }
-#         )
-
 seaf.nav:
   - title: Метаданные
     includes:
@@ -60,7 +50,11 @@ seaf.nav:
               - title: Мета информации об отчете
                 link: "/entities/seaf.md.ASreports.files/md_registry"
                 order: 221
-      - title: Процесса качества
-        link: "/entities/seaf.ia.business_objects/registry"
-      - title: Файлов компании
-        link: "/entities/seaf.ia.business_objects/registry"
+      - title: Процесса качества данных (КД)
+        includes:
+          - title: Реестр Требований КД
+            link: "/entities/seaf.md.reestrAS/md_registry"
+            order: 210
+          - title: Реестр проверок КД
+            link: "/entities/seaf.md.reestrAS/md_registry"
+            order: 211

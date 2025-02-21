@@ -6,8 +6,7 @@
 :------------               | :------------
 Наименование                | {{title}}
 Описание                    | {{description}}
-Слой КХД                      | {{layer}}
-Тип представления           | {{type}}
+Слой КХД                    | {{layer}}
 Автоматизированная система  | {{system}}
 СУБД                        | {{dbms}}
 База данных                 | {{database}}
@@ -18,8 +17,8 @@
 Наличие персональных данных | {{pdn_flag}}
 Наличие критических данных  | {{cde_flag}}
 Разработчик                 | {{developer}}
-Пользователи                 | {{users}}
+Пользователи                | {{users}}
 
-## Атрибуты Физической таблицы
+## Колонки таблицы
 
-![Мета аттрибуты](@entity/seaf.ia.physical_attributes/md_registry_by_physical_tables?id={{id}})
+![Мета аттрибуты](@entity/seaf.md.dwh.columns/md_registry_by_physical_tables?id={{id}})
