@@ -53,8 +53,8 @@ seaf.nav:
       - title: Процесса качества данных (КД)
         includes:
           - title: Реестр Требований КД
-            link: "/entities/seaf.md.reestrAS/md_registry"
+            link: "/entities/seaf.md.DQreq/md_registry"
             order: 210
           - title: Реестр проверок КД
-            link: "/entities/seaf.md.reestrAS/md_registry"
+            link: "/entities/seaf.md.DQcheck/md_registry"
             order: 211

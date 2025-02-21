@@ -7,3 +7,4 @@ imports:
   - p_dwh_etl.yaml
   - p_reports.yaml
   - p_systems_registry.yaml
+  - p_data_quality.yaml

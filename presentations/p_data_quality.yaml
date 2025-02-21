@@ -1,0 +1,96 @@
+entities:
+  seaf.md.DQreq:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: title
+            text: Наименование
+          - value: description
+            text: Обоснование
+          - value: owner
+            text: ФИО заказчика
+          - value: department
+            text: Подразделение заказчика
+          - value: business_task
+            text: Бизнес-задача/процесс
+          - value: business_background
+            text: Обоснование бизнес-задачи
+          - value: schedule
+            text: Целевое время выполнения проверок
+          - value: monitor
+            text: Регламент мониторинга
+          - value: system
+            text: АС реализации проверки
+        source: >
+          (
+            [$."seaf.md.DQreq".$spread().
+                {
+                    "title": *.title,
+                    "description": *.description,
+                    "owner": *.owner,
+                    "department": *.department,
+                    "business_task": *.business_task,
+                    "business_background": *.business_background,
+                    "schedule": *.schedule,
+                    "monitor": *.monitor,
+                    "system": *.system
+                }]
+          )
+
+  seaf.md.DQcheck:
+    presentations:
+      md_registry:
+        type: table
+        headers:
+          - value: dqreq
+            text: ТКД
+          - value: req_type
+            text: Тип требования
+          - value: tech_description
+            text: Техническое описание требования
+          - value: selection
+            text: Условие отбора проверяемых записей
+          - value: indicator
+            text: Показатель
+          - value: treshold
+            text: Пороговое значение показателя
+          - value: critical
+            text: Признак критичности
+          - value: influence
+            text: Описание влияния
+          - value: ai_usage
+            text: Признак использования атрибута в AI моделях
+          - value: database
+            text: База данных
+          - value: table
+            text: Таблица
+          - value: column
+            text: Поле (колонка)
+          - value: developer
+            text: Автор создания проверки
+          - value: data_area
+            text: Область данных
+          - value: data_owner
+            text: Владелец данных
+        source: >
+          (
+            [$."seaf.md.DQcheck".$spread().
+                {
+                    "title": *.title,
+                    "req_type": *.req_type,
+                    "tech_description": *.tech_description,
+                    "selection": *.selection,
+                    "indicator": *.indicator,
+                    "treshold": *.treshold,
+                    "critical": *.critical,
+                    "influence": *.influence,
+                    "ai_usage": *.ai_usage,
+                    "database": *.database,
+                    "table": *.table,
+                    "column": *.column,
+                    "developer": *.developer,
+                    "data_area": *.data_area,
+                    "data_owner": *.data_owner
+                }]
+          )
