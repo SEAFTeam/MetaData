@@ -67,10 +67,12 @@ entities:
             text: Таблица
           - value: column
             text: Поле (колонка)
+          - value: monitoras
+            text: АС мониторинга
+          - value: monitor
+            text: Регламент мониторинга
           - value: developer
             text: Автор создания проверки
-          - value: data_area
-            text: Область данных
           - value: data_owner
             text: Владелец данных
         source: >
@@ -89,8 +91,9 @@ entities:
                     "database": *.database,
                     "table": *.table,
                     "column": *.column,
+                    "monitoras": *.monitoras,
+                    "monitor": *.monitor,
                     "developer": *.developer,
-                    "data_area": *.data_area,
                     "data_owner": *.data_owner
                 }]
           )
