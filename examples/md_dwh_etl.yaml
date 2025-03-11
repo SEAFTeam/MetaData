@@ -1,0 +1,36 @@
+seaf.md.dwh.procedures:
+  p1:
+    title: p1_dds_addr_format
+    description: преобразование адресов
+    input_data: address, dadata
+    insert_table: city_addr
+  p2:
+    title: p2_mov
+    description: преобразование фильмов
+    input_data: films
+    insert_table: best_movs
+
+
+seaf.md.dwh.views:
+  v1:
+    title: top_mov
+    description: лучшие фильмы
+    input_data: films, raiting
+    view_type: materialized
+
+
+seaf.md.dwh.dags:
+  d1:
+    title: dag1
+    description: витрина фильмов
+    start_date: 01.02.2025
+    schedule: daily
+    tasks: t1
+    etl_procs: p2
+  d2:
+    title: dag2,
+    description: доставка в stg
+    start_date: 01.02.2025
+    schedule: monthly
+    tasks: t2
+    etl_procs: 

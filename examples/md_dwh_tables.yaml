@@ -1,0 +1,71 @@
+seaf.md.dwh.tables:
+    t0:
+      title: address
+      description: адреса
+      layer: STG
+      system: flix.1c.db
+      dbms: S3
+      database: raw
+      schema_name: public
+      rows_count: 777
+      cols_count: 7
+      size: 1000
+      pdn_flag: false
+      cde_flag: true
+      developer: dev1
+      users: DE, SA, DBA
+    t1:
+      title: films
+      description: фильмы
+      layer: STG
+      system: flix.home_cinema.catalog
+      dbms: S3
+      database: raw
+      schema_name: public
+      rows_count: 999
+      cols_count: 9
+      size: 1000000000000000
+      pdn_flag: false
+      cde_flag: true
+      developer: dev1
+      users: DE, SA, DBA
+    t2:
+      title: payment
+      description: оплата
+      layer: STG
+      system: flix.1c.db
+      dbms: GreenPlum
+      database: raw
+      schema_name: public
+      rows_count: 666
+      cols_count: 6
+      size: 100000000
+      pdn_flag: true
+      cde_flag: true
+      users: DE, SA, DBA
+
+    t3:
+      title: movies
+      description: кинокартины
+      layer: DDS
+      dbms: GreenPlum
+      database: raw
+      schema_name: public
+      rows_count: 666
+      cols_count: 6
+      size: 100000000
+      developer: dev2
+      users: DE, BA
+
+    t4:
+      title: best_selling_movies
+      description: топ проката
+      layer: CDM
+      dbms: GreenPlum
+      database: raw
+      schema_name: sandbox
+      rows_count: 555
+      cols_count: 5
+      size: 5000000
+      developer: an1
+      users: BA, PO

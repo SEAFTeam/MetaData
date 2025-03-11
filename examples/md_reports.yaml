@@ -1,0 +1,51 @@
+seaf.md.BIreports:
+  bir1:
+    title: BIreport1
+    description: рейтинги для руководства
+    indicators: 
+    input_data: [kpi1, kpi2]
+    data_marts: top_mov
+    report_type: продуктовая аналитика
+    users_count: 5
+    developer: anal1
+    owner: manager1
+  bir2:
+    title: BIreport2
+    description: аналитика для менеджеров
+    indicators: 
+    input_data: [kpi1, kpi2]
+    data_marts: top_mov
+    report_type: продуктовая аналитика
+    users_count: 5
+    developer: anal2
+    owner: manager1
+
+
+seaf.md.ASreports.templates:
+  asrtemp1:
+    title: AStemplate1
+    description: пользователи сервиса
+    specification: 
+    system: flix.1c
+    users_count: 2
+    developer: eng1
+    user_roles: editors
+
+
+seaf.md.ASreports.files:
+  asrfile1:
+    title: ASfile1
+    description: клиенты 2024
+    file_name: topclients
+    system: flix.1c
+    developer: manager1
+    report_date: 01.02.2025
+
+  asrfile2:
+    title: ASfile2
+    description: клиенты 2023
+    file_name: topclients
+    system: flix.1c
+    developer: manager2
+    report_date: 01.02.2024
+

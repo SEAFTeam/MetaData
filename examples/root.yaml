@@ -1,2 +1,6 @@
 imports:
+  - md_dwh_tables.yaml
+  - md_dwh_columns.yaml
+  - md_dwh_etl.yaml
+  - md_reports.yaml
   - md_data_quality.yaml
