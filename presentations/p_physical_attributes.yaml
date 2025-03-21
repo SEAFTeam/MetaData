@@ -32,7 +32,8 @@ entities:
             text: Критичные данные
         source: >
           (
-            [$."seaf.ia.physical_attributes".$spread().
+            $tables := [$."seaf.ia.physical_tables".$spread().($id := $keys();*[$not(dwh = true)].{"id" : $id})];
+            [$."seaf.ia.physical_attributes".$spread()[$.*.physical_table in $tables.$spread().*].
                 {
                     "title": *.title,
                     "type": *.type,

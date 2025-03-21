@@ -21,4 +21,4 @@
 
 ## Колонки таблицы
 
-![Мета аттрибуты](@entity/seaf.md.dwh.columns/md_registry_by_physical_tables?id={{id}})
+![Мета аттрибуты](@entity/seaf.ia.physical_attributes/md_registry_by_physical_tables?id={{id}})

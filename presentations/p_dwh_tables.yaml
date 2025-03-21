@@ -1,7 +1,7 @@
 entities:
-  seaf.md.dwh.tables:
+  seaf.ia.physical_tables:
     presentations:
-      md_registry:
+      md_dwh_registry:
         type: table
         headers:
           - value: title
@@ -35,32 +35,34 @@ entities:
             text: Пользователи
         source: >
           (
-            [$."seaf.md.dwh.tables".$spread().
+            [$."seaf.ia.physical_tables".$spread().($id := $keys();*[dwh = true].
                 {
-                    "title": *.title,
-                    "self_link": "/entities/seaf.md.dwh.tables/md_card?id=" & $keys(),
-                    "description": *.description,
-                    "layer": *.layer,
-                    "system": *.system,
-                    "dbms": *.dbms,
-                    "database": *.database,
-                    "schema_name": *.schema_name,
-                    "rows_count": *.rows_count,
-                    "cols_count": *.cols_count,
-                    "size": *.size,
-                    "pdn_flag": *.pdn_flag,
-                    "cde_flag": *.cde_flag,
-                    "developer": *.developer,
-                    "users": *.users
-                }]
+                    "title": title,
+                    "self_link": "/entities/seaf.ia.physical_tables/md_dwh_card?id=" & $id,
+                    "description": description,
+                    "layer": layer,
+                    "system": system,
+                    "dbms": dbms,
+                    "database": database,
+                    "schema_name": schema_name,
+                    "rows_count": rows_count,
+                    "cols_count": cols_count,
+                    "size": size,
+                    "pdn_flag": pdn_flag,
+                    "cde_flag": cde_flag,
+                    "developer": developer,
+                    "users": users
+                }
+              )
+            ]
           )
 
-      md_card:
+      md_dwh_card:
         type: markdown
         template: ../templates/t_dwh_table.md
         source: >
           (
-            $."seaf.md.dwh.tables".$spread()[$keys()=$params.id].{
+            $."seaf.ia.physical_tables".$spread()[$keys()=$params.id].{
                   "id": $keys(),
                   "title": *.title,
                   "description": *.description,

@@ -20,10 +20,10 @@ seaf.nav:
           - title: Технические метаданные
             includes:
               - title: Таблицы
-                link: "/entities/seaf.md.dwh.tables/md_registry"
+                link: "/entities/seaf.ia.physical_tables/md_dwh_registry"
                 order: 210
               - title: Колонки
-                link: "/entities/seaf.md.dwh.columns/md_registry"
+                link: "/entities/seaf.ia.physical_attributes/md_dwh_registry"
                 order: 211
           - title: Преобразований таблиц
             includes:

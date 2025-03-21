@@ -1,0 +1,216 @@
+seaf.ia.physical_attributes:
+    t1.a0:
+      title: film name
+      type: string
+      description: наименование фильма
+      constraints: max 180
+      pk_flag: false
+      fk_flag: false
+      physical_table: t1
+      pdn_flag: false
+      cde_flag: true
+    t1.a1:
+      title: col1
+      type: string
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t1
+      pdn_flag: false
+      cde_flag: false
+    t1.a2:
+      title: col2
+      type: int
+      description: 
+      constraints: 
+      pk_flag: true
+      fk_flag: false
+      physical_table: t1
+      pdn_flag: false
+      cde_flag: false
+    t1.a3:
+      title: col3
+      type: int
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: true
+      physical_table: t1
+      pdn_flag: false
+      cde_flag: false
+    t1.a4:
+      title: col4
+      type: boolean
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t1
+      pdn_flag: false
+      cde_flag: false
+
+    t3.a1:
+      title: col1
+      type: string
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t3
+      pdn_flag: false
+      cde_flag: false
+    t3.a2:
+      title: col2
+      type: int
+      description: 
+      constraints: 
+      pk_flag: true
+      fk_flag: false
+      physical_table: t3
+      pdn_flag: false
+      cde_flag: false
+    t3.a3:
+      title: col3
+      type: int
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: true
+      physical_table: t3
+      pdn_flag: false
+      cde_flag: false
+    t3.a4:
+      title: col4
+      type: boolean
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t3
+      pdn_flag: false
+      cde_flag: false
+
+    t2.a1:
+      title: col1
+      type: string
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t2
+      pdn_flag: false
+      cde_flag: false
+    t2.a2:
+      title: col2
+      type: int
+      description: 
+      constraints: 
+      pk_flag: true
+      fk_flag: false
+      physical_table: t2
+      pdn_flag: false
+      cde_flag: false
+    t2.a3:
+      title: col3
+      type: int
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: true
+      physical_table: t2
+      pdn_flag: false
+      cde_flag: false
+    t2.a4:
+      title: col4
+      type: boolean
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t2
+      pdn_flag: false
+      cde_flag: false
+
+    t4.a1:
+      title: col1
+      type: string
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t4
+      pdn_flag: false
+      cde_flag: false
+    t4.a2:
+      title: col2
+      type: int
+      description: 
+      constraints: 
+      pk_flag: true
+      fk_flag: false
+      physical_table: t4
+      pdn_flag: false
+      cde_flag: false
+    t4.a3:
+      title: col3
+      type: int
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: true
+      physical_table: t4
+      pdn_flag: false
+      cde_flag: false
+    t4.a4:
+      title: col4
+      type: boolean
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t4
+      pdn_flag: false
+      cde_flag: false
+
+    t0.a1:
+      title: col1
+      type: string
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t0
+      pdn_flag: false
+      cde_flag: false
+    t0.a2:
+      title: col2
+      type: int
+      description: 
+      constraints: 
+      pk_flag: true
+      fk_flag: false
+      physical_table: t0
+      pdn_flag: false
+      cde_flag: false
+    t0.a3:
+      title: col3
+      type: int
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: true
+      physical_table: t0
+      pdn_flag: false
+      cde_flag: false
+    t0.a4:
+      title: col4
+      type: boolean
+      description: 
+      constraints: 
+      pk_flag: false
+      fk_flag: false
+      physical_table: t0
+      pdn_flag: false
+      cde_flag: false
+

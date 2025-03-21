@@ -15,7 +15,7 @@ entities:
             text: Количество таблиц
         source: >
           ([
-            ($."seaf.ia.physical_tables".*{system:[[$distinct(dbms)], $count(title)]} ~> $each(function( $v, $k) {
+            ($."seaf.ia.physical_tables".*[$not(dwh = true)]{system:[[$distinct(dbms)], $count(title)]} ~> $each(function( $v, $k) {
               { "system": $k, "dbms": $v[0], "tables_count": $v[1]}
               })
             ).{

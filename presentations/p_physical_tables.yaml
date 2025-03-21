@@ -29,26 +29,27 @@ entities:
             text: Справочник НСИ
         source: >
           (
-            [$."seaf.ia.physical_tables".$spread().
-                {
-                    "title": *.title,
-                    "self_link": "/entities/seaf.ia.physical_tables/md_card?id=" & $keys(),
-                    "description": *.description,
-                    /* отображаем `.title` только для АС, описанных в `$$.components`, а для отсутствующих - переданный код АС */
-                    "system": (
-                      $sys_code := *.system; 
+          [$."seaf.ia.physical_tables".$spread().($id := $keys();*[$not(dwh = true)].
+              {
+                  "title": title,
+                  "self_link": "/entities/seaf.ia.physical_tables/md_card?id=" & $id,
+                  "description": description,
+                  /* отображаем `.title` только для АС, описанных в `$$.components`, а для отсутствующих - переданный код АС */
+                  "system": (
+                      $sys_code := system; 
                       $system_component_title := $$.components.$spread()[$keys()=$sys_code].*.title; 
-                      $system_component_title ? $system_component_title : *.system
-                    ),
-                    "dbms": *.dbms,
-                    "database": *.database,
-                    "schema_name": *.schema_name,
-                    "rows_count": *.rows_count,
-                    "cols_count": *.cols_count,
-                    "pdn_flag": *.pdn_flag,
-                    "cde_flag": *.cde_flag,
-                    "rmd_flag": *.rmd_flag
-                }]
+                      $system_component_title ? $system_component_title : system
+                  ),
+                  "dbms": dbms,
+                  "database": database,
+                  "schema_name": schema_name,
+                  "rows_count": rows_count,
+                  "cols_count": cols_count,
+                  "pdn_flag": pdn_flag,
+                  "cde_flag": cde_flag,
+                  "rmd_flag": rmd_flag
+              })
+          ]
           )
 
       md_card:
