@@ -36,7 +36,7 @@ imports:
 
 SEAF-DZO-EXAMPLE
 
-| _metamodel_ - Пакеты расширений
+|- _metamodel_ - Пакеты расширений
 
 | |- metadata - Расширение для хранения и визуализации метаданных
 
