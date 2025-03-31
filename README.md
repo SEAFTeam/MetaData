@@ -4,7 +4,7 @@
 Описание представлений читайте в разделе меню "Документы/Мета данные"
 [Документы/Мета данные](/docs/seaf.md.description)
 
-# MetaData_discovery
+## metadata_discovery
 Инструмент для сбора технических метаданных и проксирования слоев ИА
 
 [https://github.com/medmikhr/MetaData_discovery](https://github.com/medmikhr/MetaData_discovery)
@@ -33,12 +33,21 @@ imports:
  - metadata/root.yaml
 
 Финальная структура проекта:
+
 SEAF-DZO-EXAMPLE
-|- _metamodel_ - Пакеты расширений
+
+| _metamodel_ - Пакеты расширений
+
 | |- metadata - Расширение для хранения и визуализации метаданных
+
 | |- seaf-core - Sber Enterprise Architecture Framework (SEAF)
+
 |- architecture - Пример описания архитектуры
-| |- interface - Конфигурация пользовательского интерфейса|- docs - Документация
-|- dos - Документация по пакетам
+
+| |- interface - Конфигурация пользовательского интерфейса
+
+|- docs - Документация по пакетам
+
 |- dochub.yaml - Корневой манифест
+
 |- README.md - Описание репозитория
