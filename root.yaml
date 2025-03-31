@@ -17,4 +17,5 @@ $package:
 imports:
   - examples/root.yaml
   - presentations/root.yaml
+  - docs/root.yaml
   - menu.yaml

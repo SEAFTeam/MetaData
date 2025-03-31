@@ -1,0 +1,6 @@
+docs:
+  seaf.md.description:
+    description: Мета данные
+    type: markdown
+    location: Мета данные
+    source: metadata_description.md

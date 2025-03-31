@@ -9,12 +9,14 @@ seaf.nav:
           - title: Реестр АС
             link: "/entities/seaf.md.reestrAS/md_registry"
             order: 210
-          - title: Таблицы
-            link: "/entities/seaf.ia.physical_tables/md_registry"
-            order: 211
-          - title: Колонки
-            link: "/entities/seaf.ia.physical_attributes/md_registry"
-            order: 212
+          - title: Технические метаданные
+            includes:
+            - title: Таблицы
+              link: "/entities/seaf.ia.physical_tables/md_registry"
+              order: 211
+            - title: Колонки
+              link: "/entities/seaf.ia.physical_attributes/md_registry"
+              order: 212
       - title: Корпоративного Хранилища Данных
         includes:
           - title: Технические метаданные
